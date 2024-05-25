@@ -25,6 +25,38 @@ const FormInput = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  const countries = [
+    { id: 1, name: "INDIA" },
+    { id: 2, name: "USA" },
+    { id: 3, name: "Canada" },
+    { id: 4, name: "UK" }
+    
+];
+
+const cities = {
+    INDIA:["DELHI" , "KOLKATA","MUMBAI","BANGLORE"],
+    USA: ["New York", "Los Angeles", "Chicago"],
+    Canada: ["Toronto", "Montreal", "Vancouver"],
+    UK: ["London", "Manchester", "Birmingham"]
+   
+};
+
+const handleCountryChange = (e) => {
+    const selectedCountry = e.target.value;
+    setFormData({
+        ...formData,
+        country: selectedCountry,
+        city: "" 
+    });
+};
+
+const handleCityChange = (e) => {
+    const selectedCity = e.target.value;
+    setFormData({
+        ...formData,
+        city: selectedCity
+    });
+};
   const validateField = (name, value) => {
     let error = '';
     switch (name) {
@@ -198,37 +230,30 @@ const FormInput = () => {
         />
         {errors.phoneNo && <span className="error">{errors.phoneNo}</span>}
       </div>
-      <div className="form-group">
-        <label>Country:</label>
-        <select
-          name="country"
-          value={formData.country}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          required
-        >
-          <option value="">Select Country</option>
-          <option value="India">India</option>
-          <option value="USA">USA</option>
-        </select>
-        {errors.country && <span className="error">{errors.country}</span>}
-      </div>
-      <div className="form-group">
-        <label>City:</label>
-        <select
-          name="city"
-          value={formData.city}
-          onChange={handleChange}
-          onBlur={handleBlur}
-          required
-        >
-          <option value="">Select City</option>
-          <option value="Mumbai">Mumbai</option>
-          <option value="New York">New York</option>
-          required
-        </select>
-        {errors.city && <span className="error">{errors.city}</span>}
-      </div>
+      <div className='form-group'>
+                    <label htmlFor="country">Country:</label>
+                    <select id="country" value={formData.country} onChange={handleCountryChange}>
+                        <option value="">-- Select Country --</option>
+                        {countries.map((country) => (
+                            <option key={country.id} value={country.name}>
+                                {country.name}
+                            </option>
+                        ))}
+                    </select>
+                    {errors.phoneNo && <span className="error">{errors.phoneNo}</span>}
+                </div>
+                <div className='form-group'>
+                    <label htmlFor="city">City:</label>
+                    <select id="city" value={formData.city} onChange={handleCityChange} disabled={!formData.country}>
+                        <option value="">-- Select City --</option>
+                        {formData.country && cities[formData.country].map((city, index) => (
+                            <option key={index} value={city}>
+                                {city}
+                            </option>
+                        ))}
+                    </select>
+                    {errors.phoneNo && <span className="error">{errors.phoneNo}</span>}
+                </div>
       <div className="form-group">
         <label>Pan No:</label>
         <input
