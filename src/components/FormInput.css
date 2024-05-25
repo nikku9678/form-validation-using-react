@@ -1,0 +1,102 @@
+
+.form {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+.form .header{
+    text-align: center;
+    
+    font-size: 18px;
+}
+
+  .form-group {
+    margin-bottom: 15px;
+    display: flex;
+flex-direction: column;
+  }
+  
+  .form-group label {
+    display: block;
+    text-align: left;
+    margin: 10px 0;
+
+  }
+  
+  .form-group input,
+  .form-group select {
+    width: calc(100% - 30px);
+    padding: 8px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .form-group input[type="password"] {
+    width: calc(100% - 30px); 
+  }
+  
+  .password-group {
+    position: relative;
+  }
+  
+  .show-hide-btn {
+    position: absolute;
+    right: 35px;
+    top: 41px;
+    padding: 6px 10px;
+    background: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .show-hide-btn:focus {
+    outline: none;
+  }
+  .btn{
+    display: flex;
+    justify-content: center;
+  }
+  .submit{
+    margin-top: 20px;
+    width: 60%;
+    margin: auto;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid gray;
+
+
+  }
+  .error {
+    color: red;
+    font-size: 12px;
+    position: relative;
+    left: 0;
+    text-align: left;
+  }
+  
+  .success{
+    border: 2px solid gray;
+    padding: 10px;
+    border-radius: 10px;
+    width: 40%;
+    margin: 40px auto;
+  }
+  .success h1{
+    margin: 15px 0;
+   text-align: center;
+   font-size: 20px;
+  }
+
+  .success div p{
+   text-align: left;
+   margin: 0;
+   padding: 10px 0;
+  }
+
